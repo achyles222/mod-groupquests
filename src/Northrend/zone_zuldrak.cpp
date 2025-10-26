@@ -82,7 +82,7 @@ public:
             // pointer check not needed
             DoCast(rageclaw, SPELL_FREE_RAGECLAW, true);
             _rageclawGUID.Clear();
-            me->DespawnOrUnsummon(1);
+            me->DespawnOrUnsummon(Milliseconds(1));
         }
 
         void SpellHit(Unit* caster, const SpellInfo* spell) override
@@ -109,7 +109,7 @@ public:
                     }
 
                     UnlockRageclaw(caster, rageclaw);
-                    me->DespawnOrUnsummon();
+                    me->DespawnOrUnsummon(Milliseconds(1));
                 }
                 else
                 {
@@ -221,7 +221,7 @@ public:
                             }
                         }
 
-                        me->DespawnOrUnsummon(1);
+                        me->DespawnOrUnsummon(Milliseconds(1));
                     }
                 }
             }

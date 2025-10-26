@@ -53,8 +53,8 @@ public:
 
         void JustEngagedWith(Unit* who) override
         {
-            _events.ScheduleEvent(EVENT_HEMORRHAGE, urand(5000, 8000));
-            _events.ScheduleEvent(EVENT_KIDNEY_SHOT, urand(12000, 15000));
+            _events.ScheduleEvent(EVENT_HEMORRHAGE, Milliseconds(urand(5000, 8000)));
+            _events.ScheduleEvent(EVENT_KIDNEY_SHOT, Milliseconds(urand(12000, 15000)));
 
             if (Player* player = who->ToPlayer())
                 Talk(SAY_AGGRO, player);
@@ -113,11 +113,11 @@ public:
                 {
                 case EVENT_HEMORRHAGE:
                     DoCastVictim(SPELL_HEMORRHAGE);
-                    _events.ScheduleEvent(EVENT_HEMORRHAGE, urand(12000, 168000));
+                    _events.ScheduleEvent(EVENT_HEMORRHAGE, Milliseconds(urand(12000, 168000)));
                     break;
                 case EVENT_KIDNEY_SHOT:
                     DoCastVictim(SPELL_KIDNEY_SHOT);
-                    _events.ScheduleEvent(EVENT_KIDNEY_SHOT, urand(20000, 26000));
+                    _events.ScheduleEvent(EVENT_KIDNEY_SHOT, Milliseconds(urand(20000, 26000)));
                     break;
                 default:
                     break;
